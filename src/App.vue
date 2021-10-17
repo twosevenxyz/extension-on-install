@@ -31,7 +31,8 @@
         </div>
       </section>
 
-      <section class="section pt-0">
+      <!-- Setup -->
+      <section class="section pt-0" v-show="is.firefox()">
         <div>
           <h3 class="is-3 title has-text-centered">Setup</h3>
           <p>
@@ -89,6 +90,7 @@
 </template>
 
 <script>
+import is from 'is_js'
 import Vue from 'vue'
 import VuePlyr from 'vue-plyr'
 import URI from 'urijs'
@@ -111,6 +113,9 @@ export default {
     },
     posterURL () {
       return this.assetPrefixed('static/poster.png')
+    },
+    is () {
+      return is
     }
   },
   methods: {
